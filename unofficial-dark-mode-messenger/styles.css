@@ -1,0 +1,251 @@
+.charcoal-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #0084ff;
+  transition: background-color 0.2s;
+}
+
+.charcoal-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .charcoal-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Preferences menu */
+.charcoal-preferences {
+  position: absolute;
+  z-index: 9999;
+  width: 280px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.dark-mode .charcoal-preferences {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.charcoal-preferences-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dark-mode .charcoal-preferences-header {
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.charcoal-preferences-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.charcoal-close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.charcoal-preferences-content {
+  padding: 16px;
+}
+
+.charcoal-preference-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.charcoal-preference-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Switch toggle */
+.charcoal-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.charcoal-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.charcoal-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.charcoal-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .charcoal-slider {
+  background-color: #0084ff;
+}
+
+input:focus + .charcoal-slider {
+  box-shadow: 0 0 1px #0084ff;
+}
+
+input:checked + .charcoal-slider:before {
+  transform: translateX(20px);
+}
+
+/* Theme select */
+#themeSelect {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.dark-mode #themeSelect {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #4a4a4a;
+}
+
+/* Dark mode themes */
+/* Charcoal theme */
+.dark-mode.charcoal-theme {
+  --messenger-bg: #2d2d2d;
+  --messenger-surface: #3a3a3a;
+  --messenger-text: #e0e0e0;
+  --messenger-secondary-text: #b0b0b0;
+  --messenger-border: #4a4a4a;
+  --messenger-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* Midnight theme */
+.dark-mode.midnight-theme {
+  --messenger-bg: #121212;
+  --messenger-surface: #1e1e1e;
+  --messenger-text: #ffffff;
+  --messenger-secondary-text: #b0b0b0;
+  --messenger-border: #2a2a2a;
+  --messenger-hover: rgba(255, 255, 255, 0.07);
+}
+
+/* Deep Blue theme */
+.dark-mode.deep-blue-theme {
+  --messenger-bg: #0a1929;
+  --messenger-surface: #132f4c;
+  --messenger-text: #e6f0ff;
+  --messenger-secondary-text: #b0c9e6;
+  --messenger-border: #1e4976;
+  --messenger-hover: rgba(230, 240, 255, 0.1);
+}
+
+/* Apply dark mode to Messenger elements */
+.dark-mode {
+  /* Main background */
+  [role="main"],
+  body,
+  ._4sp8,
+  ._4eby,
+  ._1enh {
+    background-color: var(--messenger-bg) !important;
+    color: var(--messenger-text) !important;
+  }
+
+  /* Conversation list */
+  ._1enh {
+    background-color: var(--messenger-surface) !important;
+  }
+
+  /* Message bubbles */
+  ._o46:not(._3i_m) ._3058 {
+    background-color: var(--messenger-surface) !important;
+    color: var(--messenger-text) !important;
+  }
+
+  /* Input area */
+  ._5irm {
+    background-color: var(--messenger-surface) !important;
+    border-top: 1px solid var(--messenger-border) !important;
+  }
+
+  /* Input field */
+  ._1p1v {
+    background-color: var(--messenger-bg) !important;
+    color: var(--messenger-text) !important;
+    border: 1px solid var(--messenger-border) !important;
+  }
+
+  /* Headers */
+  ._5742 {
+    background-color: var(--messenger-surface) !important;
+    border-bottom: 1px solid var(--messenger-border) !important;
+  }
+
+  /* Sidebar */
+  ._4_j5 {
+    background-color: var(--messenger-surface) !important;
+    border-left: 1px solid var(--messenger-border) !important;
+  }
+
+  /* Text colors */
+  ._1ht6,
+  ._1ht3,
+  ._364g,
+  ._3oh-,
+  ._58nk,
+  ._58al::placeholder {
+    color: var(--messenger-text) !important;
+  }
+
+  ._1htf,
+  ._1ht7,
+  ._1htl {
+    color: var(--messenger-secondary-text) !important;
+  }
+
+  /* Borders */
+  ._1t2u,
+  ._5iwm,
+  ._4_j4 {
+    border-color: var(--messenger-border) !important;
+  }
+
+  /* Hover states */
+  ._1ht1:hover {
+    background-color: var(--messenger-hover) !important;
+  }
+}
+
